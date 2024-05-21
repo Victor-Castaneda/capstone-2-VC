@@ -1,0 +1,142 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    justify-content: space-around;
+    padding: 20px;
+    background-image: url("../images/redwoods.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #F2EFC9;
+}
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #F2EFC9;
+    color: black;
+    padding: 10px 0;
+    z-index: 1000; /* Ensure it appears above other content */
+}
+
+.nav-container {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.content {
+    padding-top: 60px; /* Adjust this value based on your navbar height */
+    padding: 20px;
+}
+.cards-container{
+    padding-top: 1000px;
+}
+.card {
+    border: 2px solid #5c5c5c;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 180px;
+    margin: 10px;
+    overflow: hidden;
+}
+
+.card img {
+    max-width: 100%; /* Had to set the image to a max because it was taking up the whole webpage */
+    max-height: 120px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 8px;
+}
+
+.card-title {
+    font-size: 0.9em;
+    margin: 0 0 3px;
+}
+
+.card-text {
+    font-size: 0.8em;
+    margin: 0 0 3px;
+}
+
+.card-footer {
+    background-color: #f8f8f8;
+    padding: 3px;
+    text-align: center;
+}
+
+.card-footer a {
+    text-decoration: none;
+    color: #007BFF;
+    font-size: 0.8em;
+}
+
+.carousel-container {
+    padding-top: 1000px;
+    padding-bottom: 50px;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.carousel-slide {
+    display: flex;
+    transition: transform 0.9s ease-in-out;
+    width: 100%;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: auto;
+}
+
+.prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    margin-top: 900px;
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+@media (hover: hover) {
+    .prev-btn:hover, .next-btn:hover {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+}
+
+.nav-container {
+    text-align: center;
+}
+.fullscreen-section {
+    height: 100vh; /* Make the section full-screen */
+    background-image: url("your-background-image.jpg"); /* Set the background image */
+    background-size: cover; /* Ensure the background image covers the entire section */
+    background-position: center; /* Center the background image */
+    /* Add any other necessary styles */
+}
+
+#cards-section {
+    padding: 20px; /* Add padding to create space between the cards and the edges of the section */
+    /* Add any other necessary styles */
+}
