@@ -67,11 +67,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return card;
     }
     
-    
-    
-    
-    
-
     function displayCards(dataArray) {
         cardsContainer.innerHTML = '';
         dataArray.forEach(park => {
@@ -83,24 +78,25 @@ document.addEventListener('DOMContentLoaded', () => {
     function filterData() {
         const selectedLocation = locationSelect.value;
         const selectedParkType = parkTypeSelect.value;
-
+    
         let filteredData = [];
-        if (selectedParkType === 'Mountain' || selectedParkType === '') {
-            filteredData = mountainsArray.filter(mountain => 
-                selectedLocation === '' || selectedLocation === 'New England'
-            );
-        }
-        if (selectedParkType !== 'Mountain' || selectedParkType === '') {
-            const parkData = nationalParksArray.filter(park => 
+    
+        if (selectedParkType === 'Mountain') {
+            // Filter only mountains if selected
+            filteredData = mountainsArray.filter(mountain => selectedLocation === '' || selectedLocation === 'New England');
+        } else if (selectedParkType !== '') {
+            // Filter by selected park type
+            filteredData = nationalParksArray.filter(park => 
                 (selectedLocation === '' || park.State === selectedLocation) &&
-                (selectedParkType === '' || park.ParkType === selectedParkType)
+                park.ParkType === selectedParkType
             );
-            filteredData = filteredData.concat(parkData);
+        } else {
+            // No park type selected, show all
+            filteredData = nationalParksArray.filter(park => selectedLocation === '' || park.State === selectedLocation);
         }
-
+    
         displayCards(filteredData);
     }
-
     locationSelect.addEventListener('change', filterData);
     parkTypeSelect.addEventListener('change', filterData);
 

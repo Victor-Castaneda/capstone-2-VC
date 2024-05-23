@@ -8,7 +8,7 @@ body, html {
 body {
     justify-content: space-around;
     padding: 20px;
-    background-image: url("../images/redwoods.jpg");
+    background-image: url("../images/lavanderpark.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -128,11 +128,10 @@ body {
     text-align: center;
 }
 .fullscreen-section {
-    height: 100vh; /* Make the section full-screen */
-    background-image: url("your-background-image.jpg"); /* Set the background image */
-    background-size: cover; /* Ensure the background image covers the entire section */
-    background-position: center; /* Center the background image */
-    /* Add any other necessary styles */
+    height: 100vh; 
+    background-image: url("your-background-image.jpg"); 
+    background-size: cover; 
+    background-position: center; 
 }
 
 #cards-section {
