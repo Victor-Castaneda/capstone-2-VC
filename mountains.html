@@ -17,7 +17,7 @@
                             class="visually-hidden">(current)</span></a>
                     <a class="nav-item nav-link" href="nationalpark.html">National Parks</a>
                     <a class="nav-item nav-link" href="mountains.html">Mountains</a>
-                    <h1 class="text-center mb-4">National Parks</h1>
+                    <h1 class="text-center mb-4">Enjoy the outdoors o7</h1>
                 </div>
             </nav>
         </div>
@@ -38,28 +38,82 @@
     <script src="scripts/mountainData.js"></script>
     <script src="scripts/scripts.js"></script>
     <script>     
-      const cardsContainer = document.getElementById('cards-container');
+      document.addEventListener('DOMContentLoaded', () => {
+    const cardsContainer = document.getElementById('cards-container');
+    const imageArray=[
+    'images/Adams-StoryImage_2.jpg',
+            'images/Bond-StoryImage_3.jpg',
+            'images/Cabot-StoryImg.jpg',
+            'images/Cannon-StoryImg_2.jpg',
+            'images/Carrigain-StoryImage_2.jpg',
+            'images/Carters-StoryImage.jpg',
+            'images/CDome-StoryImage.jpg',
+            'images/Eisenhower-StoryImage_2.jpg',
+            'images/EOsceola-StoryImg_2.jpg',
+            'images/Field-StoryImage.jpg',
+            'images/Flume-StoryImg_2.jpg',
+            'images/Galehead-StoryImg.jpg',
+            'images/Garfield-StoryImage.jpg',
+            'images/Hale-StoryImg.jpg',
+            'images/Hancock-StoryImage_2.jpg',
+            'images/Isolation-StoryImg.jpg',
+            'images/Jackson-StoryImg.jpg',
+            'images/Jefferson-StoryImage_2.jpg',
+            'images/Lafayette-StoryImage_2.jpg',
+            'images/Liberty-StoryImage_2.jpg',
+            'images/Lincoln-StoryImage_2.jpg',
+            'images/M-Tripyramids-StoryImg.jpg',
+            'images/Madison-StoryImage_2.jpg',
+            'images/MidCarter-StoryImage.jpg',
+            'images/Monroe-StoryImage_2.jpg',
+            'images/Moosilauke-StoryImage_2.jpg',
+            'images/Moriah-StoryImg.jpg',
+            'images/NKinsman-StoryImg_2.jpg',
+            'images/NTwin-StoryImage_2.jpg',
+            'images/Osceola-StoryImage_2.jpg',
+            'images/OwlsHead-StoryImg.jpg',
+            'images/Passaconoway-StoryImg.jpg',
+            'images/Pierce-StoryImg.jpg',
+            'images/SHancock-StoryImg.jpg',
+            'images/SKinsman-StoryImage.jpg',
+            'images/STwin-StoryImage_2.jpg',
+            'images/Tecumseh-StoryImg.jpg',
+            'images/Tom-StoryImg.jpg',
+            'images/Tripyramids-StoryImg_2.jpg',
+            'images/Washington-StoryImage_2.jpg',
+            'images/WBond-StoryImage.jpg',
+            'images/Whiteface-StoryImg.jpg',
+            'images/Wildcat-StoryImage.jpg',
+            'images/WildcatD-StoryImg.jpg',
+            'images/Willey-StoryImg_2.jpg',
+            'images/Zeacliff-StoryImg_2.jpg',
+    ];
 
-mountainsArray.forEach(mountain => {
-    const card = document.createElement('div');
-    card.className = 'card';
-    
-    // Log the image path to console for debugging
-    console.log(`Image path for ${mountain.name}: ${mountain.img}`);
-    
-    card.innerHTML = `
-        <img src="${mountain.img}" alt="${mountain.name}" onerror="this.onerror=null; console.error('Image not found:', this.src); this.src='images/placeholder.jpg';">
-        <div class="card-content">
-            <div class="card-title">${mountain.name}</div>
-            <div class="card-desc">${mountain.desc}</div>
-            <div class="card-info"><strong>Elevation:</strong> ${mountain.elevation} feet</div>
-            <div class="card-info"><strong>Effort:</strong> ${mountain.effort}</div>
-            <div class="card-info"><strong>Coordinates:</strong> ${mountain.coords.lat}, ${mountain.coords.lng}</div>
-        </div>
-    `;
+    mountainsArray.forEach((mountain, index) => {
+        const card = document.createElement('div');
+        card.className = 'card';
 
-    cardsContainer.appendChild(card);
+        // Assign the image path from imageArray based on the index
+        const imagePath = imageArray[index];
+
+        // Log the image path to console for debugging
+        console.log(`Image path for ${mountain.name}: ${imagePath}`);
+        
+        card.innerHTML = `
+            <img src="${imagePath}" alt="${mountain.name}" onerror="this.onerror=null; console.error('Image not found:', this.src); this.src='images/placeholder.jpg';">
+            <div class="card-content">
+                <div class="card-title">${mountain.name}</div>
+                <div class="card-desc">${mountain.desc}</div>
+                <div class="card-info"><strong>Elevation:</strong> ${mountain.elevation} feet</div>
+                <div class="card-info"><strong>Effort:</strong> ${mountain.effort}</div>
+                <div class="card-info"><strong>Coordinates:</strong> ${mountain.coords.lat}, ${mountain.coords.lng}</div>
+            </div>
+        `;
+
+        cardsContainer.appendChild(card);
+    });
 });
         </script>
 </body>
 </html>
+

@@ -44,7 +44,9 @@ body {
     margin: 10px;
     overflow: hidden;
 }
-
+.container{
+    margin-top: 200px;
+}
 .card img {
     max-width: 100%; /* Had to set the image to a max because it was taking up the whole webpage */
     max-height: 120px;
