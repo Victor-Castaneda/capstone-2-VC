@@ -1,56 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basic Project Template</title>
-    <link rel="stylesheet" href="css/style.css">
-
+    <title>National Parks</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/mountains.css">
 </head>
-
 <body>
     <header>
         <div class="nav-container">
             <nav class="navbar navbar-expand navbar-light bg-light">
                 <div class="nav navbar-nav">
-        
                     <a class="nav-item nav-link active" href="index.html" aria-current="page">Home <span
                             class="visually-hidden">(current)</span></a>
-                    <a class="nav-item nav-link" href="nationalparks.html">National Parks</a>
+                    <a class="nav-item nav-link" href="nationalpark.html">National Parks</a>
                     <a class="nav-item nav-link" href="mountains.html">Mountains</a>
                     <h1 class="text-center mb-4">National Parks</h1>
                 </div>
             </nav>
         </div>
-
-        <select id="mountain">
-            <option>Mountain 1</option>
-            <option>Mountain 1</option>
-            <option>Mountain 1</option>
-            <option>Mountain 1</option>
-        </select>
-
+        <section class="fullscreen-section" id="background-section2">
+            <!-- Content with background image goes here -->
+        </section>
     </header>
-    <main>
-        <div id="app"></div>
-        <div id="locations"></div>
-        <div id="mountains"></div>
-
-        <div id=""></div>
-
-
-        <button onclick="loadData();">
-            click here
-        </button>
-
+    <main class="container">
+        <section class="container" id="cards-section">
+    </section>
+        <div class="row" id="cards-container"></div>
     </main>
-    <footer>
-    </footer>
+    <footer class="text-center mt-4 py-2"></footer>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script src="scripts/mountainData.js"></script>
+    <script src="scripts/scripts.js"></script>
+    <script>     
+      const cardsContainer = document.getElementById('cards-container');
 
-    <script src="scripts/mountains.js"></script>
+mountainsArray.forEach(mountain => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    
+    // Log the image path to console for debugging
+    console.log(`Image path for ${mountain.name}: ${mountain.img}`);
+    
+    card.innerHTML = `
+        <img src="${mountain.img}" alt="${mountain.name}" onerror="this.onerror=null; console.error('Image not found:', this.src); this.src='images/placeholder.jpg';">
+        <div class="card-content">
+            <div class="card-title">${mountain.name}</div>
+            <div class="card-desc">${mountain.desc}</div>
+            <div class="card-info"><strong>Elevation:</strong> ${mountain.elevation} feet</div>
+            <div class="card-info"><strong>Effort:</strong> ${mountain.effort}</div>
+            <div class="card-info"><strong>Coordinates:</strong> ${mountain.coords.lat}, ${mountain.coords.lng}</div>
+        </div>
+    `;
+
+    cardsContainer.appendChild(card);
+});
+        </script>
 </body>
-
 </html>
