@@ -26,94 +26,129 @@
         </section>
     </header>
     <main class="container">
+        <select id="mountainSelector" class="form-select mb-4">
+            <option value="">Select Mountain</option>
+        </select>
         <section class="container" id="cards-section">
-    </section>
+        </section>
         <div class="row" id="cards-container"></div>
     </main>
     <footer class="text-center mt-4 py-2"></footer>
 
-    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script src="scripts/mountainData.js"></script>
     <script src="scripts/scripts.js"></script>
     <script>     
       document.addEventListener('DOMContentLoaded', () => {
-    const cardsContainer = document.getElementById('cards-container');
-    const imageArray=[
-    'images/Adams-StoryImage_2.jpg',
-            'images/Bond-StoryImage_3.jpg',
-            'images/Cabot-StoryImg.jpg',
-            'images/Cannon-StoryImg_2.jpg',
-            'images/Carrigain-StoryImage_2.jpg',
-            'images/Carters-StoryImage.jpg',
-            'images/CDome-StoryImage.jpg',
-            'images/Eisenhower-StoryImage_2.jpg',
-            'images/EOsceola-StoryImg_2.jpg',
-            'images/Field-StoryImage.jpg',
-            'images/Flume-StoryImg_2.jpg',
-            'images/Galehead-StoryImg.jpg',
-            'images/Garfield-StoryImage.jpg',
-            'images/Hale-StoryImg.jpg',
-            'images/Hancock-StoryImage_2.jpg',
-            'images/Isolation-StoryImg.jpg',
-            'images/Jackson-StoryImg.jpg',
-            'images/Jefferson-StoryImage_2.jpg',
-            'images/Lafayette-StoryImage_2.jpg',
-            'images/Liberty-StoryImage_2.jpg',
-            'images/Lincoln-StoryImage_2.jpg',
-            'images/M-Tripyramids-StoryImg.jpg',
-            'images/Madison-StoryImage_2.jpg',
-            'images/MidCarter-StoryImage.jpg',
-            'images/Monroe-StoryImage_2.jpg',
-            'images/Moosilauke-StoryImage_2.jpg',
-            'images/Moriah-StoryImg.jpg',
-            'images/NKinsman-StoryImg_2.jpg',
-            'images/NTwin-StoryImage_2.jpg',
-            'images/Osceola-StoryImage_2.jpg',
-            'images/OwlsHead-StoryImg.jpg',
-            'images/Passaconoway-StoryImg.jpg',
-            'images/Pierce-StoryImg.jpg',
-            'images/SHancock-StoryImg.jpg',
-            'images/SKinsman-StoryImage.jpg',
-            'images/STwin-StoryImage_2.jpg',
-            'images/Tecumseh-StoryImg.jpg',
-            'images/Tom-StoryImg.jpg',
-            'images/Tripyramids-StoryImg_2.jpg',
-            'images/Washington-StoryImage_2.jpg',
-            'images/WBond-StoryImage.jpg',
-            'images/Whiteface-StoryImg.jpg',
-            'images/Wildcat-StoryImage.jpg',
-            'images/WildcatD-StoryImg.jpg',
-            'images/Willey-StoryImg_2.jpg',
-            'images/Zeacliff-StoryImg_2.jpg',
-    ];
+            const cardsContainer = document.getElementById('cards-container');
+            const mountainSelector = document.getElementById('mountainSelector');
+            const imageArray = [
+                'images/Adams-StoryImage_2.jpg',
+                'images/Bond-StoryImage_3.jpg',
+                'images/Cabot-StoryImg.jpg',
+                'images/Cannon-StoryImg_2.jpg',
+                'images/Carrigain-StoryImage_2.jpg',
+                'images/Carters-StoryImage.jpg',
+                'images/CDome-StoryImage.jpg',
+                'images/Eisenhower-StoryImage_2.jpg',
+                'images/EOsceola-StoryImg_2.jpg',
+                'images/Field-StoryImage.jpg',
+                'images/Flume-StoryImg_2.jpg',
+                'images/Galehead-StoryImg.jpg',
+                'images/Garfield-StoryImage.jpg',
+                'images/Hale-StoryImg.jpg',
+                'images/Hancock-StoryImage_2.jpg',
+                'images/Isolation-StoryImg.jpg',
+                'images/Jackson-StoryImg.jpg',
+                'images/Jefferson-StoryImage_2.jpg',
+                'images/Lafayette-StoryImage_2.jpg',
+                'images/Liberty-StoryImage_2.jpg',
+                'images/Lincoln-StoryImage_2.jpg',
+                'images/M-Tripyramids-StoryImg.jpg',
+                'images/Madison-StoryImage_2.jpg',
+                'images/MidCarter-StoryImage.jpg',
+                'images/Monroe-StoryImage_2.jpg',
+                'images/Moosilauke-StoryImage_2.jpg',
+                'images/Moriah-StoryImg.jpg',
+                'images/NKinsman-StoryImg_2.jpg',
+                'images/NTwin-StoryImage_2.jpg',
+                'images/Osceola-StoryImage_2.jpg',
+                'images/OwlsHead-StoryImg.jpg',
+                'images/Passaconoway-StoryImg.jpg',
+                'images/Pierce-StoryImg.jpg',
+                'images/SHancock-StoryImg.jpg',
+                'images/SKinsman-StoryImage.jpg',
+                'images/STwin-StoryImage_2.jpg',
+                'images/Tecumseh-StoryImg.jpg',
+                'images/Tom-StoryImg.jpg',
+                'images/Tripyramids-StoryImg_2.jpg',
+                'images/Washington-StoryImage_2.jpg',
+                'images/WBond-StoryImage.jpg',
+                'images/Whiteface-StoryImg.jpg',
+                'images/Wildcat-StoryImage.jpg',
+                'images/WildcatD-StoryImg.jpg',
+                'images/Willey-StoryImg_2.jpg',
+                'images/Zeacliff-StoryImg_2.jpg',
+            ];
 
-    mountainsArray.forEach((mountain, index) => {
-        const card = document.createElement('div');
-        card.className = 'card';
+            // Populate the select dropdown with mountains
+            mountainsArray.forEach((mountain, index) => {
+                const option = document.createElement('option');
+                option.value = index; // Set the index as the value
+                option.text = mountain.name;
+                mountainSelector.appendChild(option);
+            });
 
-        // Assign the image path from imageArray based on the index
-        const imagePath = imageArray[index];
+            // Function to create a card for a mountain
+            const createCard = (mountain, index) => {
+                const card = document.createElement('div');
+                card.className = 'card';
 
-        // Log the image path to console for debugging
-        console.log(`Image path for ${mountain.name}: ${imagePath}`);
-        
-        card.innerHTML = `
-            <img src="${imagePath}" alt="${mountain.name}" onerror="this.onerror=null; console.error('Image not found:', this.src); this.src='images/placeholder.jpg';">
-            <div class="card-content">
-                <div class="card-title">${mountain.name}</div>
-                <div class="card-desc">${mountain.desc}</div>
-                <div class="card-info"><strong>Elevation:</strong> ${mountain.elevation} feet</div>
-                <div class="card-info"><strong>Effort:</strong> ${mountain.effort}</div>
-                <div class="card-info"><strong>Coordinates:</strong> ${mountain.coords.lat}, ${mountain.coords.lng}</div>
-            </div>
-        `;
+                // Assign the image path from imageArray based on the index
+                const imagePath = imageArray[index];
 
-        cardsContainer.appendChild(card);
-    });
-});
-        </script>
+                // Log the image path to console for debugging
+                console.log(`Image path for ${mountain.name}: ${imagePath}`);
+                
+                card.innerHTML = `
+                    <img src="${imagePath}" alt="${mountain.name}" onerror="this.onerror=null; console.error('Image not found:', this.src); this.src='images/placeholder.jpg';">
+                    <div class="card-content">
+                        <div class="card-title">${mountain.name}</div>
+                        <div class="card-desc">${mountain.desc}</div>
+                        <div class="card-info"><strong>Elevation:</strong> ${mountain.elevation} feet</div>
+                        <div class="card-info"><strong>Effort:</strong> ${mountain.effort}</div>
+                        <div class="card-info"><strong>Coordinates:</strong> ${mountain.coords.lat}, ${mountain.coords.lng}</div>
+                    </div>
+                `;
+
+                return card;
+            };
+
+            // Populate the initial cards
+            mountainsArray.forEach((mountain, index) => {
+                const card = createCard(mountain, index);
+                cardsContainer.appendChild(card);
+            });
+
+            // Event listener for select change
+            mountainSelector.addEventListener('change', () => {
+                const selectedIndex = mountainSelector.value;
+                cardsContainer.innerHTML = ''; // Clear the current cards
+                if (selectedIndex === '') {
+                    // If no selection, repopulate all cards
+                    mountainsArray.forEach((mountain, index) => {
+                        const card = createCard(mountain, index);
+                        cardsContainer.appendChild(card);
+                    });
+                } else {
+                    // If a selection is made, show only the selected mountain
+                    const selectedMountain = mountainsArray[selectedIndex];
+                    const card = createCard(selectedMountain, selectedIndex);
+                    cardsContainer.appendChild(card);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
-
