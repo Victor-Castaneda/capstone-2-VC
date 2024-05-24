@@ -139,3 +139,9 @@ body {
     padding: 20px; /* Add padding to create space between the cards and the edges of the section */
     /* Add any other necessary styles */
 }
+#pcontainer{
+    background-color: #afe1af;
+    align-items: center;
+    text-align: center;
+    height: 150px;
+}
