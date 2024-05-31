@@ -88,7 +88,7 @@ body {
 
 .carousel-slide {
     display: flex;
-    transition: transform 0.9s ease-in-out;
+    transition: transform 1.2s ease-in-out;
     width: 100%;
 }
 

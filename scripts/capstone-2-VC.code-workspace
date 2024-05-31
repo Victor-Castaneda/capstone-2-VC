@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../../../JavaScript DOM/JavaScript DOM"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "capstone-2-VC"
+	}
+}
